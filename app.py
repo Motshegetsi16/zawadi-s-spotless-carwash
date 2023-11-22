@@ -3,6 +3,7 @@ import sqlite3
 
 app = Flask(__name__, static_folder='static')
 app.secret_key = 'your_secret_key'  # Change this to a random secret key
+#session["authenticated"] = False
 
 # Create a SQLite database and a table for users
 conn = sqlite3.connect('users.db')
@@ -37,17 +38,21 @@ def login():
         if user and user[2] == password:  # Assuming the password is stored in the third column
             # Store user information in the session
             session['username'] = username
+            session["authenticated"] = True
             # Redirect to the bookin.html template
-            return redirect(url_for('booking'))
+            return redirect("/booking")
         else:
             flash('Incorrect username or password', 'error')
             return render_template('index.html', error_message=request.args.get('error'))
     else:
         return render_template('index.html')
     
-@app.route('/booking', methods=['GET', 'POST'])
+@app.route('/booking')
 def booking():
-    return render_template('bookin.html')
+    if session["authenticated"]:
+        return render_template('bookin.html')
+    else:
+        return redirect("/login")
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -86,7 +91,7 @@ def successful_booking():
 @app.route('/logout')
 def logout():
     # Clear the session data
-    session.clear()
+    session["authenticated"] = False
     return redirect(url_for('index'))
 
 
