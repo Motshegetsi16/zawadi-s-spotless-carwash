@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Carwash Booking</title>
+
+    <!-- Link the specific style_book.css file for bookin.html -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_book.css') }}">
+</head>
+
+<body>
+    <form action="{{ url_for('successful_booking') }}" method="post">
+        <div class="container">
+
+            <label for="uname"><b>License Plate</b></label>
+
+            <input type="text" placeholder="Enter License Plate" name="uname" required>
+
+
+            <label for="psw"><b>Date</b></label>
+
+            <input type="date" name="booking_date" id="booking_date" required>
+
+
+            <label for="psw"><b>Time</b></label>
+
+            <input type="time" name="booking_time" id="booking_time" required>
+
+
+            <label for="psw"><b>Car Model</b></label>
+
+            <input type="text" placeholder="Enter Car Model" name="car_model" required>
+
+
+            <label for="psw"><b>Package</b></label>
+
+            <select name="package" id="package" required>
+
+                <option value="">Select Package</option>
+
+                <option value="Basic">Basic /R100</option>
+
+                <option value="Deluxe">Deluxe /R180</option>
+
+                <option value="Premium">Premium /R299</option>
+
+            </select>
+
+
+            <button type="submit" class="btn">Book</button>
+        </div>
+
+    </form>
+    
+
+</body>
+
+</html>

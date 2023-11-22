@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="welcome-message">
+        <h1>Welcome to Carwash Booking</h1>
+        <p><a href="{{ url_for('login') }}">Log in</a> or 
+            <a href="{{ url_for('register') }}">register</a> 
+            to book your carwash appointment.
+        </p>
+    </div>
+{% endblock body %}
