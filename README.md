@@ -11,6 +11,8 @@ Features:
 - Payment processing
 - Real-time updates on car's progress
 - Rating and review system for customer feedback
+
+
 Target audience: it will be targeted towards car owners who are looking for convenient, user-friendly carwash services in specific geographic areas. This project will focus on local carwash businesses, and will be designed for users of all ages and genders in those local areas.
 - Vehicle information: Users will be asked to enter the make and model of their vehicle. This way they can be recommended specific services or packages based on the user's car model.
 
